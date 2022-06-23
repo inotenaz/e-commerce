@@ -1,7 +1,7 @@
 package com.inotenaz.ecommerce.domain;
 
+
 import java.io.Serializable;
-import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,22 +9,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Categoria implements Serializable {
+public class Cliente implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
+	private String cpf;
 	
-	public Categoria() {
+	public Cliente() {
 		
 	}
 
-	public Categoria(Integer id, String nome) {
+	public Cliente(Integer id, String nome, String cpf) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.cpf = cpf;
 	}
 
 	public Integer getId() {
@@ -43,22 +45,16 @@ public class Categoria implements Serializable {
 		this.nome = nome;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
+	public String getCpf() {
+		return cpf;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Categoria other = (Categoria) obj;
-		return Objects.equals(id, other.id);
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
-	
-	
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 }
