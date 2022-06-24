@@ -33,7 +33,7 @@ public class ClienteService {
 	public void delete(Integer id) {
 		Optional<Cliente> obj = repo.findById(id);	
 
-		if (!obj.isEmpty()) {
+		if (obj.isPresent() ) {
 			repo.deleteById(id);				
 		}
 	}
