@@ -24,6 +24,7 @@ public class ClienteResource {
 	private ClienteService service;
 	
 	//Consulta por id
+	@CrossOrigin(origins = "http://localhost:8080")
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id) {	
 		Cliente obj = service.buscar(id);		
