@@ -15,8 +15,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.inotenaz.ecommerce.domain.Cliente;
 import com.inotenaz.ecommerce.services.ClienteService;
 
-@CrossOrigin(origins = "http://localhost:8080", allowedHeaders = "*")
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping(value="/clientes")
 public class ClienteResource {
 	
@@ -24,10 +24,10 @@ public class ClienteResource {
 	private ClienteService service;
 	
 	//Consulta por id
-	@CrossOrigin(origins = "http://localhost:8080", allowedHeaders = "*")
+	@CrossOrigin(origins = "*")
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id) {	
-		Cliente obj = service.buscar(id);		
+		Cliente obj = service.buscar(id);	
 		return ResponseEntity.ok().body(obj);
 		
 	}
